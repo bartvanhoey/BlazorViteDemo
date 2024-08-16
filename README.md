@@ -127,8 +127,14 @@ We already installed the `Vite.AspNetCore` package earlier which does most of th
 
 2. Open the `wwwroot` directory and copy the contents of `app.css` into our new `app.scss` file. 
 3. Delete the default bootstrap folder and add the line `@import "bootstrap/scss/bootstrap";` to the top of `app.scss`.
-3. Copy the `favicon.png` to the `Client/public/` directory.
-4. Add the following to the top of the `Program.cs` file:
+4. Copy the `favicon.png` to the `Client/public/` directory.
+5. Open a terminal in the root of the project and run the following command:
+
+    ```bash
+        dotnet add package Vite.AspNetCore
+    ```
+
+6. Add the following to the top of the `Program.cs` file:
 
     ```csharp
     using Vite.AspNetCore;
@@ -139,7 +145,7 @@ We already installed the `Vite.AspNetCore` package earlier which does most of th
     builder.Services.AddViteServices();
     ```
 
-5. Add the following to the bottom of the `Program.cs` file:
+7. Add the following to the bottom of the `Program.cs` file:
 
     ```csharp
     if (app.Environment.IsDevelopment())
@@ -153,7 +159,7 @@ We already installed the `Vite.AspNetCore` package earlier which does most of th
     }
     ```
 
-5. Finally, update the `App.razor` component to use the new script and style assets provided via Vite by placing the following within the `<head>` tags:
+8. Finally, update the `App.razor` component to use the new script and style assets provided via Vite by placing the following within the `<head>` tags:
 
     ```csharp
     @using Vite.AspNetCore
@@ -199,5 +205,5 @@ We already installed the `Vite.AspNetCore` package earlier which does most of th
     }
     ```
 
-6. Test by running `npm run build` to ensure that Vite successfully built and output the js and css files into the `wwwroot` directory.
-7. You can now run `dotnet watch run` to run the application and see the Hot Reload in action after making a change to the scripts or styles.
+9. Test by running `npm run build` to ensure that Vite successfully built and output the js and css files into the `wwwroot` directory.
+10. You can now run `dotnet watch run` to run the application and see the Hot Reload in action after making a change to the scripts or styles.
